@@ -1,0 +1,30 @@
+/* Ionic Variables and Theming. */
+
+:root {
+  --ion-color-primary: #3b82f6;
+  --ion-color-primary-rgb: 59, 130, 246;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3472d9;
+  --ion-color-primary-tint: #4f8ff7;
+
+  --ion-color-secondary: #10b981;
+  --ion-color-secondary-rgb: 16, 185, 129;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0ea371;
+  --ion-color-secondary-tint: #28c08c;
+
+  --ion-color-tertiary: #8b5cf6;
+  --ion-color-tertiary-rgb: 139, 92, 246;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #7a51d9;
+  --ion-color-tertiary-tint: #976df7;
+
+  --ion-color-success: #22c55e;
+  --ion-color-warning: #f59e0b;
+  --ion-color-danger: #ef4444;
+  --ion-color-medium: #6b7280;
+  --ion-color-light: #f4f5f8;
+}

@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="background">
+    <ion-title class="app-title">CODEGENIE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content" [fullscreen]="true">
+
+  <div class="banner-card">
+    <h2>Effortless & Instant Payments</h2>
+    <p>With secure, reliable and effortless payments</p>
+    <button class="banner-btn">
+      EARN UP TO 5% MDR BENEFITS
+    </button>
+  </div>
+
+  <div class="services-header">
+    <ion-icon name="flash" class="flash-icon"></ion-icon>
+    <h2>Services</h2>
+  </div>
+
+  <ion-grid class="services-grid">
+    <ion-row>
+      <ion-col size="3" *ngFor="let tile of services" (click)="onTileClick(tile)">
+        <div class="tile-item">
+          <div class="icon-circle" [class.highlighted]="tile.highlight">
+            <ion-icon [name]="tile.icon"></ion-icon>
+          </div>
+          <span class="tile-label" [class.active-label]="tile.activeText">{{ tile.name }}</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="action-section">
+    <div class="action-card">
+      <span>Query Transaction</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="action-card">
+      <span>Raise Complaint</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="action-card">
+      <span>Complaint Status</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+
+</ion-content>

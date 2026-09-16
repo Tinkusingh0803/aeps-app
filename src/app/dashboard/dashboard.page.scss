@@ -1,0 +1,158 @@
+.main-content {
+  --background: #f7f9fc;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+ion-toolbar {
+  --background: #f7f9fc;
+  --border-width: 0;
+  padding-top: 8px;
+}
+
+.app-title {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: #111827;
+  padding-start: 4px;
+}
+
+.banner-card {
+  background: linear-gradient(135deg, #0d2040 0%, #154c79 50%, #1e6b9e 100%);
+  border-radius: 20px;
+  padding: 24px 20px;
+  color: #ffffff;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(13, 32, 64, 0.12);
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+  }
+
+  p {
+    font-size: 13px;
+    color: #cde1f7;
+    margin: 0 0 16px 0;
+  }
+
+  .banner-btn {
+    background: #ffffff;
+    color: #0d2040;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    letter-spacing: 0.3px;
+  }
+}
+
+.services-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  .flash-icon {
+    color: #eab308;
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+  }
+}
+
+.services-grid {
+  padding: 0;
+  margin-bottom: 24px;
+
+  ion-row {
+    row-gap: 20px;
+  }
+
+  ion-col {
+    padding: 0;
+  }
+}
+
+.tile-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+
+  .icon-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: #f0f2f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+
+    ion-icon {
+      font-size: 26px;
+      color: #374151;
+    }
+
+    &.highlighted {
+      background-color: #f0f5ff;
+      border: 2px solid #2563eb;
+
+      ion-icon {
+        color: #2563eb;
+      }
+    }
+  }
+
+  .tile-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4b5563;
+    line-height: 1.2;
+    white-space: pre-line;
+
+    &.active-label {
+      color: #2563eb;
+    }
+  }
+}
+
+.action-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.action-card {
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f3f4f6;
+
+  span {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  ion-icon {
+    font-size: 18px;
+    color: #9ca3af;
+  }
+}
