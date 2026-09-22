@@ -1,17 +1,31 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="background">
-    <ion-title class="app-title">CODEGENIE</ion-title>
+  <ion-toolbar color="background" class="app-toolbar">
+    <div class="header-content">
+      <div class="header-text">
+        <span class="app-title">CODEGENIE</span>
+      </div>
+      <button class="avatar-btn" (click)="onProfileClick()" aria-label="Open profile">
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="main-content" [fullscreen]="true">
+  <div class="carousel-wrapper">
+    <div class="carousel-track" #carouselTrack (scroll)="onCarouselScroll(carouselTrack)">
+      <div class="carousel-slide" *ngFor="let banner of banners">
+        <div class="banner-card">
+          <h2>{{ banner.title }}</h2>
+          <p>{{ banner.subtitle }}</p>
+          <button class="banner-btn">{{ banner.cta }}</button>
+        </div>
+      </div>
+    </div>
 
-  <div class="banner-card">
-    <h2>Effortless & Instant Payments</h2>
-    <p>With secure, reliable and effortless payments</p>
-    <button class="banner-btn">
-      EARN UP TO 5% MDR BENEFITS
-    </button>
+    <div class="carousel-dots">
+      <span class="dot" *ngFor="let banner of banners; let i = index" [class.active]="i === activeBannerIndex"></span>
+    </div>
   </div>
 
   <div class="services-header">
@@ -33,18 +47,43 @@
   </ion-grid>
 
   <div class="action-section">
-    <div class="action-card">
-      <span>Query Transaction</span>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </div>
-    <div class="action-card">
-      <span>Raise Complaint</span>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </div>
-    <div class="action-card">
-      <span>Complaint Status</span>
+    <div class="action-card" *ngFor="let action of quickActions" (click)="onActionClick(action)">
+      <span>{{ action.label }}</span>
       <ion-icon name="chevron-forward-outline"></ion-icon>
     </div>
   </div>
 
+  <div class="offers-header">
+    <div class="offers-header-left">
+      <ion-icon name="star" class="star-icon"></ion-icon>
+      <h2>Explore Offers &amp; Rewards</h2>
+    </div>
+    <button class="view-all-btn" (click)="onViewAllOffers()">View All</button>
+  </div>
+
+  <div class="offer-card" *ngFor="let offer of offers">
+    <h2>{{ offer.title }}</h2>
+    <p>{{ offer.subtitle }}</p>
+    <button class="banner-btn">{{ offer.cta }}</button>
+    <span class="terms-text" *ngIf="offer.terms">{{ offer.terms }}</span>
+  </div>
+
 </ion-content>
+
+<ion-footer class="app-footer">
+  <div class="footer-nav">
+    <div class="footer-item" [class.active]="activeTab === 'home'" (click)="onTabClick('home')">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>Home</span>
+    </div>
+
+    <button class="footer-scan-btn" (click)="onScanClick()" aria-label="Scan QR code">
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </button>
+
+    <div class="footer-item" [class.active]="activeTab === 'transactions'" (click)="onTabClick('transactions')">
+      <ion-icon name="time-outline"></ion-icon>
+      <span>Transactions</span>
+    </div>
+  </div>
+</ion-footer>

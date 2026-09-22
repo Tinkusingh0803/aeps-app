@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AlertController,
@@ -7,6 +7,7 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
+  IonFooter,
   IonIcon,
   IonGrid,
   IonRow,
@@ -23,7 +24,11 @@ import {
   airplaneOutline,
   gridOutline,
   flash,
+  star,
   chevronForwardOutline,
+  homeOutline,
+  timeOutline,
+  person,
 } from 'ionicons/icons';
 import { AepsService } from '../services/aeps.service';
 
@@ -34,6 +39,23 @@ interface ServiceTile {
   highlight?: boolean;
   activeText?: boolean;
 }
+
+interface QuickAction {
+  label: string;
+  action: string;
+}
+
+interface PromoBanner {
+  title: string;
+  subtitle: string;
+  cta: string;
+}
+
+interface OfferBanner extends PromoBanner {
+  terms?: string;
+}
+
+type FooterTab = 'home' | 'transactions';
 
 @Component({
   selector: 'app-dashboard',
@@ -46,6 +68,7 @@ interface ServiceTile {
     IonToolbar,
     IonTitle,
     IonContent,
+    IonFooter,
     IonIcon,
     IonGrid,
     IonRow,
@@ -54,6 +77,7 @@ interface ServiceTile {
 })
 export class DashboardPage {
 
+  @ViewChild('carouselTrack') carouselTrack?: ElementRef<HTMLDivElement>;
   services: ServiceTile[] = [
     { name: 'Bill Pay', icon: 'receipt-outline', action: 'bill_pay' },
     { name: 'Money\nTransfer', icon: 'swap-horizontal-outline', action: 'dmt' },
@@ -64,6 +88,43 @@ export class DashboardPage {
     { name: 'Travel', icon: 'airplane-outline', action: 'travel' },
     { name: 'View All', icon: 'grid-outline', action: 'view_all' },
   ];
+
+  quickActions: QuickAction[] = [
+    { label: 'Query Transaction', action: 'query_transaction' },
+    { label: 'Raise Complaint', action: 'raise_complaint' },
+    { label: 'Complaint Status', action: 'complaint_status' },
+  ];
+
+  banners: PromoBanner[] = [
+    {
+      title: 'Effortless & Instant Payments',
+      subtitle: 'With secure, reliable and effortless payments',
+      cta: 'EARN UP TO 5% MDR BENEFITS',
+    },
+    {
+      title: 'Grow Your Business',
+      subtitle: 'Unlock new revenue streams with our merchant tools',
+      cta: 'EXPLORE MERCHANT SOLUTIONS',
+    },
+    {
+      title: 'Refer & Earn',
+      subtitle: 'Invite partners and earn rewards on every referral',
+      cta: 'START REFERRING',
+    },
+  ];
+
+  offers: OfferBanner[] = [
+    {
+      title: 'Get Instant Personal Loan',
+      subtitle: 'Minimum interest rate on your loan with affordable range',
+      cta: 'GET UP TO 5% INTEREST RATE',
+      terms: 'Terms & Conditions Apply',
+    },
+  ];
+
+  activeBannerIndex = 0;
+  activeTab: FooterTab = 'home';
+
 
   constructor(
     private aepsService: AepsService,
@@ -80,8 +141,24 @@ export class DashboardPage {
       airplaneOutline,
       gridOutline,
       flash,
+      star,
       chevronForwardOutline,
+      homeOutline,
+      timeOutline,
+      person,
     });
+  }
+
+  onProfileClick() {
+    this.showAlert('Coming soon', 'Profile screen is not part of this prototype.');
+  }
+
+  onCarouselScroll(track: HTMLDivElement): void {
+    const slideWidth = track.clientWidth;
+    if (!slideWidth) {
+      return;
+    }
+    this.activeBannerIndex = Math.round(track.scrollLeft / slideWidth);
   }
 
   onTileClick(tile: ServiceTile) {
@@ -119,6 +196,22 @@ export class DashboardPage {
       await loading.dismiss();
       await this.showAlert('Error', err?.message ?? 'Something went wrong');
     }
+  }
+
+  onActionClick(action: QuickAction) {
+    this.showAlert('Coming soon', `${action.label} is not part of this prototype.`);
+  }
+
+  onViewAllOffers() {
+    this.showAlert('Coming soon', 'Offers & Rewards listing is not part of this prototype.');
+  }
+
+  onTabClick(tab: FooterTab) {
+    this.activeTab = tab;
+  }
+
+  onScanClick() {
+    this.showAlert('Coming soon', 'QR scanner is not part of this prototype.');
   }
 
   private async showAlert(header: string, message: string) {
