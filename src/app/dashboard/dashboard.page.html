@@ -77,12 +77,15 @@
       <span>Home</span>
     </div>
 
-    <button class="footer-scan-btn" (click)="onScanClick()" aria-label="Scan QR code">
-      <ion-icon name="qr-code-outline"></ion-icon>
-    </button>
+    <div class="footer-scan-wrap" [class.active]="activeTab === 'scan'">
+      <button class="footer-scan-btn" (click)="onTabClick('scan')" aria-label="Scan QR code">
+        <ion-icon name="qr-code-outline"></ion-icon>
+      </button>
+      <span class="active-indicator"></span>
+    </div>
 
     <div class="footer-item" [class.active]="activeTab === 'transactions'" (click)="onTabClick('transactions')">
-      <ion-icon name="time-outline"></ion-icon>
+      <ion-icon name="receipt-outline"></ion-icon>
       <span>Transactions</span>
     </div>
   </div>

@@ -55,7 +55,7 @@ interface OfferBanner extends PromoBanner {
   terms?: string;
 }
 
-type FooterTab = 'home' | 'transactions';
+type FooterTab = 'home' | 'scan' | 'transactions';
 
 @Component({
   selector: 'app-dashboard',
@@ -79,11 +79,11 @@ export class DashboardPage {
 
   @ViewChild('carouselTrack') carouselTrack?: ElementRef<HTMLDivElement>;
   services: ServiceTile[] = [
-    { name: 'Bill Pay', icon: 'receipt-outline', action: 'bill_pay' },
+    { name: 'Bill Pay', icon: 'receipt-outline', action: 'bill_pay', highlight: true, activeText: true },
     { name: 'Money\nTransfer', icon: 'swap-horizontal-outline', action: 'dmt' },
     { name: 'UPI Transfer', icon: 'qr-code-outline', action: 'upi' },
     { name: 'DMT Transfer', icon: 'wallet-outline', action: 'dmt_transfer' },
-    { name: 'AEPS', icon: 'finger-print-outline', action: 'aeps', highlight: true, activeText: true },
+    { name: 'AEPS', icon: 'finger-print-outline', action: 'aeps' },
     { name: 'Aadhaar Pay', icon: 'card-outline', action: 'aadhaar_pay' },
     { name: 'Travel', icon: 'airplane-outline', action: 'travel' },
     { name: 'View All', icon: 'grid-outline', action: 'view_all' },
@@ -208,10 +208,6 @@ export class DashboardPage {
 
   onTabClick(tab: FooterTab) {
     this.activeTab = tab;
-  }
-
-  onScanClick() {
-    this.showAlert('Coming soon', 'QR scanner is not part of this prototype.');
   }
 
   private async showAlert(header: string, message: string) {

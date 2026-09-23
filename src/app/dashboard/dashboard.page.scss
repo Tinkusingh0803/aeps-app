@@ -30,6 +30,7 @@ ion-header {
   justify-content: space-between;
   gap: 12px;
   padding: 0 4px;
+  margin-top: 5px;
 }
 
 .header-text {
@@ -59,8 +60,8 @@ ion-header {
 
 .avatar-btn {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #111827;
   border: none;
@@ -222,7 +223,7 @@ ion-header {
     white-space: pre-line;
 
     &.active-label {
-      color: #2563eb;
+      color: #eb4d25;
     }
   }
 }
@@ -242,7 +243,8 @@ ion-header {
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-  border: 1px solid #f3f4f6;
+  border: 1px solid #c6c8cb;
+  ;
   cursor: pointer;
 
   span {
@@ -254,6 +256,12 @@ ion-header {
   ion-icon {
     font-size: 18px;
     color: #9ca3af;
+    font-size: 18px;
+    color: #9ca3af;
+    border: 2px solid;
+    background: #ffffff;
+    padding: 2px 2px;
+    border-radius: 50%;
   }
 }
 
@@ -348,11 +356,30 @@ ion-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -28px;
+  margin-top: -34px;
   box-shadow: 0 6px 14px rgba(17, 24, 39, 0.3);
 
   ion-icon {
     font-size: 26px;
     color: #ffffff;
+  }
+}
+
+.footer-scan-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  .active-indicator {
+    width: 48px;
+    height: 3px;
+    border-radius: 2px;
+    background: #111827;
+    margin-top: 8px;
+  }
+
+  &.active .active-indicator {
+    background: #111827;
   }
 }
